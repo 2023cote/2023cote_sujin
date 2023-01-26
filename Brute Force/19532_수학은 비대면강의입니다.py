@@ -36,7 +36,7 @@ $y$를 공백으로 구분해 출력한다.
 
 a,b,c,d,e,f=map(int,input().split())
 
-x=(c*e-b*f)//(a*e-b*d)
+x=(e*c-b*f)//(e*a-b*d)
 y=(c*d-a*f)//(b*d-a*e)
 
 print(x,y)

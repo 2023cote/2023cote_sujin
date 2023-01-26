@@ -10,16 +10,16 @@
 출력
 첫째 줄에 답을 출력한다. 생성자가 없는 경우에는 0을 출력한다.
 """
+n=int(input()) #분해합
 
-n=int(input())
-res=0
-for i in range(1,n+1):
-    now=i
-    pos_sum=now
-    while now>0:
-        pos_sum+=now%10
-        now=now//10
-    if pos_sum==n:
-        res=i
-        break
-print(res)
+def func():
+    for i in range(1,n):
+        make_n,pos=i,i
+        while pos>0:
+            make_n+=pos%10
+            pos//=10
+        if n==make_n:
+            return i
+    return 0
+
+print(func())

@@ -17,23 +17,29 @@ N장의 카드에 써져 있는 숫자가 주어졌을 때, M을 넘지 않으�
 
 출력
 첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다.
+
+
 """
 
 n,m=map(int,input().split())
 cards=list(map(int,input().split()))
 
-res,smallest_interval=-1,m
-for i in range(0,n):
-    for j in range(i+1,n):
-        for k in range(j+1,n):
-            now_sum=cards[i]+cards[j]+cards[k]
-            now_interval=m-now_sum
-            
-            if now_interval<0:
-                continue
-            else:
-                if now_interval==0 or now_interval<smallest_interval:
-                    res=now_sum
-                    smallest_interval=now_interval
-            
-print(res)
+def func():
+    result,smallest_interval=-1,m
+    for i in range(0,n):
+        for j in range(i+1,n):
+            for k in range(j+1,n):
+                now_sum=cards[i]+cards[j]+cards[k]
+                if now_sum>m:
+                    continue
+                elif now_sum==m:
+                    return now_sum
+                else:
+                    now_interval=m-now_sum
+                    if smallest_interval>now_interval:
+                        smallest_interval=now_interval
+                        result=now_sum
+    return result
+
+print(func())
+

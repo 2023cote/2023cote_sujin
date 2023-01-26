@@ -17,12 +17,20 @@
 00시 00분 00초부터 N시 59분 59초까지의 모든 시각 중에서 K가 하나라도 포함되는 시각들의 수를 출력한다.
 """
 
-n,k=int(input().split())
-res=0
-if k<6:
-    res=(60-45)*2
-else:
-    res=(60-54)*2
+n,k=map(int,input().split())
+k=str(k)
+cnt=0
 
-if n>=k:
-    res*=
+for i in range(0,n+1):
+    if i<10:
+        i='0'+str(i)
+    for j in range(0,60):
+        if j<10:
+            j='0'+str(j)
+        for m in range(0,60):
+            if m<10:
+                m='0'+str(m)
+            if k in str(i)+str(j)+str(m):
+                cnt+=1
+
+print(cnt)
