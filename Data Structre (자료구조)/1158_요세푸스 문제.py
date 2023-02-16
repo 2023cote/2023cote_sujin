@@ -12,11 +12,14 @@ N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 �
 출력
 예제와 같이 요세푸스 순열을 출력한다.
 """
-
+from collections import deque
 n,k=map(int,input().split())
-lst=[i for i in range(1,n+1)]
+stack=deque([i for i in range(1,n+1)])
+res=[]
 
 for i in range(1,n+1):
-    rm=k%len(lst)
-    print(lst.pop(rm-1))
-    print(lst)
+    stack.rotate(-k)
+    res.append(str(stack.pop()))
+
+print("<"+", ".join(res)+">")
+    
